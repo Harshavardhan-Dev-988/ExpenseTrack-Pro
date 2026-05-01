@@ -1,0 +1,15 @@
+date,amount,category,description,paymentMethod,tags
+2026-05-01,200.00,grocery,Weekly groceries,card,"monthly, essential"
+2026-05-02,80.00,dine_out,Breakfast with family,upi,"food, family"
+2026-05-03,3000.00,fuel,Full tank petrol,card,"transport, monthly"
+2026-05-05,450.00,grocery,Fresh vegetables and fruits,cash,essential
+2026-05-07,120.00,coffee_snacks,Coffee and snacks,upi,daily
+2026-05-08,1800.00,fuel,Diesel for tractor,card,"farming, fuel"
+2026-05-10,350.00,entertainment,Movie tickets for family,card,"leisure, weekend"
+2026-05-12,600.00,dine_out,Dinner at restaurant,card,"food, celebration"
+2026-05-15,1500.00,grocery,Monthly grocery shopping,card,"monthly, essential"
+2026-05-18,2500.00,fuel,Petrol refill,card,"transport, monthly"
+2026-05-20,180.00,coffee_snacks,Snacks and beverages,cash,daily
+2026-05-22,800.00,entertainment,Entertainment and activities,upi,"leisure, weekend"
+2026-05-25,950.00,grocery,Grocery shopping,card,essential
+2026-05-28,400.00,dine_out,Lunch outing,upi,"food, social"

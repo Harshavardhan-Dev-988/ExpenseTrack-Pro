@@ -1,0 +1,15 @@
+date,amount,category,description,paymentMethod,tags
+2026-04-01,150.50,grocery,Weekly groceries from supermarket,card,"monthly, essential"
+2026-04-02,45.00,dine_out,Lunch with colleagues,upi,"work, social"
+2026-04-03,2500.00,fuel,Full tank petrol,card,"monthly, transport"
+2026-04-05,800.00,bills_power,Monthly electricity bill,netbanking,"bills, monthly"
+2026-04-07,300.00,medical_medicines,Prescription medicines,cash,health
+2026-04-10,1200.00,shopping_clothes,New office wear,card,personal
+2026-04-12,60.00,coffee_snacks,Coffee and snacks,cash,daily
+2026-04-15,5000.00,agri_seeds_fertilizers,Seeds for new season,cheque,"farming, seasonal"
+2026-04-18,250.00,entertainment,Movie tickets,upi,"leisure, weekend"
+2026-04-20,1500.00,rent_mortgage,Monthly rent payment,netbanking,"bills, monthly"
+2026-04-22,400.00,public_transport,Monthly metro pass,card,"transport, monthly"
+2026-04-25,180.00,grocery,Fresh vegetables and fruits,cash,essential
+2026-04-27,950.00,medical_consultation,Doctor consultation,card,health
+2026-04-28,200.00,fitness_gym,Gym membership,upi,"health, monthly"

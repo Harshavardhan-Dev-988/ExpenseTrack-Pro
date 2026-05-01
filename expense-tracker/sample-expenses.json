@@ -1,0 +1,82 @@
+[
+  {
+    "date": "2026-01-05",
+    "amount": 1250.50,
+    "category": "grocery",
+    "description": "Monthly grocery shopping at supermarket",
+    "paymentMethod": "card",
+    "tags": "monthly,essential,family"
+  },
+  {
+    "date": "2026-01-07",
+    "amount": 450.00,
+    "category": "dine_out",
+    "description": "Dinner at Italian restaurant",
+    "paymentMethod": "card",
+    "tags": "weekend,leisure"
+  },
+  {
+    "date": "2026-01-08",
+    "amount": 2800.00,
+    "category": "fuel",
+    "description": "Full tank diesel for tractor",
+    "paymentMethod": "cash",
+    "tags": "farming,monthly"
+  },
+  {
+    "date": "2026-01-10",
+    "amount": 1850.00,
+    "category": "bills_power",
+    "description": "Electricity bill for January",
+    "paymentMethod": "netbanking",
+    "tags": "bills,monthly"
+  },
+  {
+    "date": "2026-01-15",
+    "amount": 5500.00,
+    "category": "rent_mortgage",
+    "description": "Monthly house rent",
+    "paymentMethod": "netbanking",
+    "tags": "bills,monthly,essential"
+  },
+  {
+    "date": "2026-01-22",
+    "amount": 15000.00,
+    "category": "agri_seeds_fertilizers",
+    "description": "Seeds and fertilizers for rabi season",
+    "paymentMethod": "cheque",
+    "tags": "farming,seasonal,investment"
+  },
+  {
+    "date": "2026-02-15",
+    "amount": 1850.00,
+    "category": "bills_power",
+    "description": "Electricity bill for February",
+    "paymentMethod": "netbanking",
+    "tags": "bills,monthly"
+  },
+  {
+    "date": "2026-03-01",
+    "amount": 2500.00,
+    "category": "education",
+    "description": "Online course subscription",
+    "paymentMethod": "card",
+    "tags": "learning,investment"
+  },
+  {
+    "date": "2026-04-16",
+    "amount": 25000.00,
+    "category": "medical_hospitalization",
+    "description": "Father's medical treatment",
+    "paymentMethod": "card",
+    "tags": "health,emergency,family"
+  },
+  {
+    "date": "2026-04-24",
+    "amount": 12000.00,
+    "category": "investments_savings",
+    "description": "Mutual fund SIP",
+    "paymentMethod": "netbanking",
+    "tags": "investment,monthly,savings"
+  }
+]

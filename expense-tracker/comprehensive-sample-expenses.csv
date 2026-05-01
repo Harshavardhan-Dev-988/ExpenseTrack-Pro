@@ -1,0 +1,88 @@
+date,amount,category,description,paymentMethod,tags
+2026-01-05,1250.50,grocery,Monthly grocery shopping at supermarket,card,"monthly, essential, family"
+2026-01-07,450.00,dine_out,Dinner at Italian restaurant,card,"weekend, leisure"
+2026-01-08,2800.00,fuel,Full tank diesel for tractor,cash,"farming, monthly"
+2026-01-10,1850.00,bills_power,Electricity bill for January,netbanking,"bills, monthly"
+2026-01-12,350.00,coffee_snacks,Coffee shop with friends,upi,"social, daily"
+2026-01-15,5500.00,rent_mortgage,Monthly house rent,netbanking,"bills, monthly, essential"
+2026-01-18,2200.00,shopping_clothes,Winter clothing for family,card,"seasonal, family"
+2026-01-20,800.00,medical_medicines,Prescription medicines and vitamins,cash,"health, monthly"
+2026-01-22,15000.00,agri_seeds_fertilizers,Seeds and fertilizers for rabi season,cheque,"farming, seasonal, investment"
+2026-01-25,650.00,public_transport,Monthly bus pass,card,transport,monthly
+2026-01-28,1200.00,medical_consultation,General health checkup,card,health,annual
+2026-01-30,180.00,grocery,Fresh vegetables and fruits,cash,weekly,essential
+2026-02-02,3500.00,bills_wifi,Annual internet subscription,netbanking,bills,annual,essential
+2026-02-05,950.00,entertainment,Movie tickets and popcorn,upi,weekend,leisure,family
+2026-02-08,1400.00,fitness_gym,Quarterly gym membership,card,health,quarterly
+2026-02-10,2100.00,fuel,Petrol for car,card,transport,monthly
+2026-02-12,8500.00,agri_equipment,New irrigation pump,cheque,farming,investment
+2026-02-15,1850.00,bills_power,Electricity bill for February,netbanking,bills,monthly
+2026-02-18,450.00,personal_care,Haircut and grooming,cash,personal
+2026-02-20,12000.00,agri_irrigation,Drip irrigation system maintenance,cheque,farming,maintenance
+2026-02-22,780.00,shopping_electronics,Mobile phone accessories,upi,personal
+2026-02-25,5500.00,rent_mortgage,Monthly house rent,netbanking,bills,monthly,essential
+2026-02-28,1450.50,grocery,Monthly grocery shopping,card,monthly,essential,family
+2026-03-01,2500.00,education,Online course subscription,card,learning,investment
+2026-03-03,650.00,dine_out,Birthday celebration dinner,card,celebration,family
+2026-03-05,3200.00,vehicle_maintenance,Car servicing and oil change,card,transport,quarterly
+2026-03-08,1200.00,bills_mobile,Mobile recharge for 3 months,upi,bills,quarterly
+2026-03-10,850.00,subscriptions,Netflix and Spotify premium,card,entertainment,monthly
+2026-03-12,4500.00,medical_tests,Blood tests and X-ray,card,health,diagnostic
+2026-03-15,18500.00,agri_livestock,Purchased two dairy cows,cash,farming,investment,livestock
+2026-03-18,2800.00,fuel,Diesel for farming equipment,cash,farming,monthly
+2026-03-20,1850.00,bills_power,Electricity bill for March,netbanking,bills,monthly
+2026-03-22,5500.00,rent_mortgage,Monthly house rent,netbanking,bills,monthly,essential
+2026-03-25,980.00,gifting_personal,Friend's wedding gift,cash,social,celebration
+2026-03-28,1350.00,grocery,Weekly grocery shopping,card,weekly,essential
+2026-03-30,250.00,coffee_snacks,Cafe breakfast,upi,daily
+2026-04-01,2200.00,bills_water,Water bill for quarter,netbanking,bills,quarterly
+2026-04-03,15000.00,travel_vacation,Train tickets for family vacation,card,leisure,travel,family
+2026-04-05,6500.00,agri_labor,Farm workers payment for harvesting,cash,farming,seasonal
+2026-04-08,1500.00,insurance_general,Home insurance premium,netbanking,insurance,annual
+2026-04-10,3200.00,shopping_clothes,Summer collection shopping,card,seasonal,personal
+2026-04-12,1850.00,bills_power,Electricity bill for April,netbanking,bills,monthly
+2026-04-15,5500.00,rent_mortgage,Monthly house rent,netbanking,bills,monthly,essential
+2026-04-16,25000.00,medical_hospitalization,Father's medical treatment,card,health,emergency,family
+2026-04-18,450.00,donations_charity,Temple donation,cash,charity,spiritual
+2026-04-20,8000.00,agri_land_lease,Agricultural land lease payment,cheque,farming,investment
+2026-04-22,2800.00,fuel,Monthly fuel for vehicles,card,transport,monthly
+2026-04-23,1650.00,household_maintenance,Plumbing repair work,cash,maintenance,urgent
+2026-04-24,12000.00,investments_savings,Mutual fund SIP,netbanking,investment,monthly,savings
+2026-04-25,850.00,pets,Pet food and veterinary visit,card,pets,monthly
+2026-04-26,3500.00,gifting_festivals,Diwali gifts for relatives,card,festival,family
+2026-04-27,1200.00,fitness_gym,Personal trainer sessions,upi,health,optional
+2026-03-10,4200.00,agri_crop_insurance,Crop insurance premium,cheque,farming,insurance,annual
+2026-02-14,2800.00,medical_insurance,Family health insurance renewal,netbanking,insurance,annual,essential
+2026-01-20,5500.00,agri_loan_interest,Agricultural loan EMI,netbanking,farming,loan,monthly
+2026-03-22,3200.00,agri_storage_transport,Warehouse storage charges,cash,farming,quarterly
+2026-02-28,1800.00,agri_other,Farm tools and supplies,cash,farming,supplies
+2026-01-18,750.00,other,Miscellaneous household expenses,cash,miscellaneous
+2026-03-05,4500.00,shopping_electronics,New laptop for work,card,work,investment
+2026-04-10,650.00,public_transport,Auto rickshaw rides,cash,transport,daily
+2026-03-28,280.00,coffee_snacks,Office canteen expenses,cash,work,daily
+2026-02-20,1200.00,entertainment,Concert tickets,upi,leisure,entertainment
+2026-01-25,3800.00,personal_care,Spa and wellness package,card,self-care,quarterly
+2026-04-05,850.00,subscriptions,Amazon Prime and Hotstar,card,entertainment,annual
+2026-02-15,2500.00,gifting_festivals,Valentine's Day celebration,card,festival,personal
+2026-03-15,1200.00,donations_charity,NGO contribution,netbanking,charity,social
+2026-01-30,950.00,dine_out,Sunday brunch with family,card,weekend,family
+2026-04-12,320.00,grocery,Emergency grocery items,cash,urgent,essential
+2026-03-20,4800.00,vehicle_maintenance,Bike repair and parts,cash,transport,maintenance
+2026-02-25,680.00,bills_mobile,Data recharge and calls,upi,bills,monthly
+2026-01-15,15000.00,education,Son's school fees quarterly,cheque,education,essential,family
+2026-04-20,5200.00,medical_consultation,Specialist consultation and medicines,card,health,treatment
+2026-03-18,2200.00,fuel,CNG refill for car,card,transport,eco-friendly
+2026-02-10,1850.00,household_maintenance,Air conditioner servicing,cash,maintenance,seasonal
+2026-04-25,3500.00,travel_vacation,Hotel booking for weekend trip,card,leisure,travel
+2026-03-30,12000.00,agri_seeds_fertilizers,Organic fertilizers bulk purchase,cheque,farming,organic,investment
+2026-01-28,950.00,personal_care,Salon and beauty treatments,upi,personal,self-care
+2026-04-15,1500.00,insurance_general,Vehicle insurance renewal,netbanking,insurance,annual,mandatory
+2026-02-18,4200.00,shopping_electronics,Smart TV purchase,card,home,entertainment
+2026-03-25,850.00,fitness_gym,Yoga classes monthly fee,upi,health,wellness
+2026-01-22,2800.00,gifting_personal,Anniversary gift for spouse,card,celebration,family
+2026-04-18,15000.00,other,Home renovation materials,card,renovation,investment
+2026-03-12,6500.00,agri_equipment,Tractor attachment purchase,cheque,farming,equipment,investment
+2026-02-22,1200.00,entertainment,Gaming subscription annual,card,entertainment,gaming
+2026-04-28,1850.00,bills_power,Electricity bill advance payment,netbanking,bills,monthly
+2026-04-28,950.00,coffee_snacks,Lunch at food court,upi,daily,convenience
+2026-04-28,5500.00,rent_mortgage,Monthly rent with maintenance,netbanking,bills,monthly,essential
