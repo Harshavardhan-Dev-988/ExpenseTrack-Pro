@@ -5,49 +5,55 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
   { 
     name: 'Grocery & Dining', 
     icon: '🍽️', 
-    categories: ['grocery', 'dine_out', 'coffee_snacks'], 
+    categories: ['grocery', 'dine_out', 'coffee_snacks', 'milk_dairy', 'street_food'], 
     color: '#FF6B6B' 
   },
   { 
     name: 'Fuel & Transportation', 
     icon: '🚗', 
-    categories: ['fuel', 'public_transport', 'vehicle_maintenance'], 
+    categories: ['fuel', 'public_transport', 'auto_rickshaw', 'vehicle_maintenance', 'vehicle_rto_fees', 'parking_fees'], 
     color: '#4ECDC4' 
   },
   { 
     name: 'Home & Bills', 
     icon: '🏠', 
-    categories: ['bills_power', 'bills_wifi', 'bills_mobile', 'bills_water', 'rent_mortgage'], 
+    categories: ['bills_power', 'bills_wifi', 'bills_mobile', 'bills_water', 'bills_lpg_gas', 'bills_dth_cable', 'mobile_recharge', 'rent_mortgage'], 
     color: '#45B7D1' 
   },
   { 
     name: 'Lifestyle & Entertainment', 
     icon: '🛍️', 
-    categories: ['shopping_clothes', 'shopping_electronics', 'entertainment', 'subscriptions', 'personal_care', 'fitness_gym'], 
+    categories: ['shopping_clothes', 'shopping_electronics', 'entertainment', 'subscriptions', 'personal_care', 'fitness_gym', 'salon_beauty', 'tailor_alterations', 'laundry_dryclean'], 
     color: '#FFA07A' 
+  },
+  { 
+    name: 'Online Shopping & Food Delivery', 
+    icon: '📱', 
+    categories: ['ecommerce_blinkit', 'ecommerce_zepto', 'ecommerce_zomato', 'ecommerce_flipkart', 'ecommerce_amazon'], 
+    color: '#FF8C42' 
   },
   { 
     name: 'Medical Expenses', 
     icon: '🏥', 
-    categories: ['medical_consultation', 'medical_medicines', 'medical_tests', 'medical_hospitalization', 'medical_insurance'], 
+    categories: ['medical_consultation', 'medical_medicines', 'medical_tests', 'medical_hospitalization', 'medical_insurance', 'medical_dental', 'medical_pharmacy', 'medical_emergency'], 
     color: '#98D8C8' 
   },
   { 
     name: 'Gifting & Donations', 
     icon: '🎁', 
-    categories: ['gifting_personal', 'gifting_festivals', 'donations_charity'], 
+    categories: ['gifting_personal', 'gifting_festivals', 'gifting_weddings', 'donations_charity', 'donations_religious'], 
     color: '#F7DC6F' 
   },
   { 
     name: 'Agriculture & Farming', 
     icon: '🌾', 
-    categories: ['agri_seeds_fertilizers', 'agri_equipment', 'agri_irrigation', 'agri_livestock', 'agri_labor', 'agri_land_lease', 'agri_crop_insurance', 'agri_loan_interest', 'agri_storage_transport', 'agri_other'], 
+    categories: ['agri_seeds_fertilizers', 'agri_seeds', 'agri_fertilizers', 'agri_pesticides', 'agri_equipment', 'agri_irrigation', 'agri_livestock', 'agri_labor', 'agri_fuel', 'agri_tractor_rental', 'agri_harvester_rental', 'agri_machinery_rental', 'agri_land_lease', 'agri_crop_insurance', 'agri_loan_interest', 'agri_storage_transport', 'agri_other'], 
     color: '#82B74B' 
   },
   { 
     name: 'Education', 
     icon: '📚', 
-    categories: ['education'], 
+    categories: ['education', 'school_fees', 'tuition_classes'], 
     color: '#9B59B6' 
   },
   { 
@@ -55,6 +61,12 @@ export const CATEGORY_GROUPS: CategoryGroup[] = [
     icon: '✈️', 
     categories: ['travel_vacation'], 
     color: '#3498DB' 
+  },
+  { 
+    name: 'Household Services', 
+    icon: '🏡', 
+    categories: ['domestic_help_maid', 'domestic_help_cook', 'domestic_help_driver', 'home_repairs', 'home_furnishing'], 
+    color: '#D4A373' 
   },
   { 
     name: 'Financial & Others', 
@@ -69,17 +81,25 @@ export const CATEGORY_LABELS: Record<CategoryType, string> = {
   grocery: 'Grocery',
   dine_out: 'Dining Out',
   coffee_snacks: 'Coffee & Snacks',
+  milk_dairy: 'Milk & Dairy',
+  street_food: 'Street Food',
   
   // Transportation
   fuel: 'Fuel',
   public_transport: 'Public Transport',
+  auto_rickshaw: 'Auto/Rickshaw',
   vehicle_maintenance: 'Vehicle Maintenance',
+  vehicle_rto_fees: 'RTO/Vehicle Registration',
+  parking_fees: 'Parking Fees',
   
   // Bills & Utilities
   bills_power: 'Electricity Bill',
   bills_wifi: 'Internet Bill',
   bills_mobile: 'Mobile Bill',
   bills_water: 'Water Bill',
+  bills_lpg_gas: 'LPG/Gas Cylinder',
+  bills_dth_cable: 'DTH/Cable TV',
+  mobile_recharge: 'Mobile Recharge',
   rent_mortgage: 'Rent/Mortgage',
   
   // Lifestyle
@@ -89,6 +109,16 @@ export const CATEGORY_LABELS: Record<CategoryType, string> = {
   subscriptions: 'Subscriptions',
   personal_care: 'Personal Care',
   fitness_gym: 'Fitness & Gym',
+  salon_beauty: 'Salon & Beauty Parlor',
+  tailor_alterations: 'Tailor & Alterations',
+  laundry_dryclean: 'Laundry & Dry Cleaning',
+  
+  // Online Shopping & Food Delivery
+  ecommerce_blinkit: 'Blinkit',
+  ecommerce_zepto: 'Zepto',
+  ecommerce_zomato: 'Zomato',
+  ecommerce_flipkart: 'Flipkart',
+  ecommerce_amazon: 'Amazon',
   
   // Medical
   medical_consultation: 'Doctor Consultation',
@@ -96,18 +126,30 @@ export const CATEGORY_LABELS: Record<CategoryType, string> = {
   medical_tests: 'Medical Tests',
   medical_hospitalization: 'Hospitalization',
   medical_insurance: 'Health Insurance',
+  medical_dental: 'Dental Care',
+  medical_pharmacy: 'Pharmacy',
+  medical_emergency: 'Emergency Medical',
   
   // Gifting
   gifting_personal: 'Personal Gifts',
   gifting_festivals: 'Festival Gifts',
+  gifting_weddings: 'Wedding & Marriage Gifts',
   donations_charity: 'Donations & Charity',
+  donations_religious: 'Temple & Religious Donations',
   
   // Agriculture
-  agri_seeds_fertilizers: 'Seeds & Fertilizers',
+  agri_seeds_fertilizers: 'Seeds & Fertilizers (Combined)',
+  agri_seeds: 'Seeds',
+  agri_fertilizers: 'Fertilizers',
+  agri_pesticides: 'Pesticides & Insecticides',
   agri_equipment: 'Farm Equipment',
   agri_irrigation: 'Irrigation',
   agri_livestock: 'Livestock',
   agri_labor: 'Farm Labor',
+  agri_fuel: 'Farm Fuel (Diesel/Petrol)',
+  agri_tractor_rental: 'Tractor Rental',
+  agri_harvester_rental: 'Harvester Rental',
+  agri_machinery_rental: 'Other Machinery Rental',
   agri_land_lease: 'Land Lease',
   agri_crop_insurance: 'Crop Insurance',
   agri_loan_interest: 'Loan Interest',
@@ -116,9 +158,18 @@ export const CATEGORY_LABELS: Record<CategoryType, string> = {
   
   // Education
   education: 'Education',
+  school_fees: 'School Fees',
+  tuition_classes: 'Tuition Classes',
   
   // Travel
   travel_vacation: 'Travel & Vacation',
+  
+  // Household Services
+  domestic_help_maid: 'Maid/House Help',
+  domestic_help_cook: 'Cook',
+  domestic_help_driver: 'Driver',
+  home_repairs: 'Home Repairs',
+  home_furnishing: 'Home Furnishing',
   
   // Financial & Others
   insurance_general: 'General Insurance',
@@ -137,6 +188,27 @@ export const PAYMENT_METHOD_LABELS = {
   other: 'Other',
 };
 
+export const SAVINGS_CATEGORY_LABELS = {
+  emergency_fund: 'Emergency Fund',
+  retirement: 'Retirement Savings',
+  investment_mutual_funds: 'Mutual Funds',
+  investment_stocks: 'Stocks & Equity',
+  investment_gold: 'Gold Investment',
+  investment_real_estate: 'Real Estate',
+  fixed_deposit: 'Fixed Deposit (FD)',
+  recurring_deposit: 'Recurring Deposit (RD)',
+  ppf: 'Public Provident Fund (PPF)',
+  nps: 'National Pension System (NPS)',
+  education_fund: 'Education Fund',
+  travel_fund: 'Travel Fund',
+  wedding_fund: 'Wedding Fund',
+  home_purchase: 'Home Purchase Fund',
+  vehicle_purchase: 'Vehicle Purchase Fund',
+  business_investment: 'Business Investment',
+  general_savings: 'General Savings',
+  other_savings: 'Other Savings',
+};
+
 export const DATE_RANGE_PRESETS = {
   thisMonth: 'This Month',
   lastMonth: 'Last Month',
@@ -149,8 +221,10 @@ export const DATE_RANGE_PRESETS = {
 };
 
 export const DB_NAME = 'ExpenseTrackerDB';
-export const DB_VERSION = 1;
+export const DB_VERSION = 2; // Incremented for savings feature
 export const EXPENSES_STORE_NAME = 'expenses';
 export const CATEGORIES_STORE_NAME = 'categories';
 export const SETTINGS_STORE_NAME = 'settings';
 export const BUDGETS_STORE_NAME = 'budgets';
+export const SAVINGS_STORE_NAME = 'savings';
+export const SAVINGS_GOALS_STORE_NAME = 'savingsGoals';

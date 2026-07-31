@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend, Label } from 'recharts';
 import type { CategoryStats } from '../../types';
 import { CATEGORY_LABELS, CATEGORY_GROUPS } from '../../utils/constants';
 
@@ -211,6 +211,35 @@ export default function CategoryPieChart({ categoryStats, currency }: CategoryPi
     };
   }, []);
 
+  // Custom label renderer for pie slices
+  const renderCustomizedLabel = (props: any) => {
+    const { cx, cy, midAngle, innerRadius, outerRadius, percent, name } = props;
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    // Only show label if percentage is > 5%
+    if (percent < 0.05) return null;
+
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="white"
+        textAnchor={x > cx ? 'start' : 'end'}
+        dominantBaseline="central"
+        className="text-xs font-bold"
+        style={{ 
+          filter: 'drop-shadow(0px 0px 2px rgba(0,0,0,0.8))',
+          pointerEvents: 'none'
+        }}
+      >
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
+
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-2xl hover:scale-[1.02] transition-all duration-300">
       <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
@@ -225,6 +254,8 @@ export default function CategoryPieChart({ categoryStats, currency }: CategoryPi
             data={chartData}
             cx="50%"
             cy="50%"
+            labelLine={false}
+            label={renderCustomizedLabel}
             innerRadius={60}
             outerRadius={100}
             fill="#8884d8"

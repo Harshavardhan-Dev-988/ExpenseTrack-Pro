@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
-import { format, getDay, startOfMonth, endOfMonth, differenceInDays } from 'date-fns';
-import type { Expense, CategoryType, PaymentMethod } from '../../types';
+import { format, getDay, differenceInDays } from 'date-fns';
+import type { Expense, CategoryType } from '../../types';
 import {
   calculateYoY,
   calculateMoM,

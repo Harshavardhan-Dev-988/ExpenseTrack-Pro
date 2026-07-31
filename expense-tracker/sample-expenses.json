@@ -78,5 +78,293 @@
     "description": "Mutual fund SIP",
     "paymentMethod": "netbanking",
     "tags": "investment,monthly,savings"
+  },
+  {
+    "date": "2026-05-05",
+    "amount": 850.00,
+    "category": "ecommerce_blinkit",
+    "description": "Groceries ordered from Blinkit",
+    "paymentMethod": "upi",
+    "tags": "groceries,online,quick-delivery"
+  },
+  {
+    "date": "2026-05-08",
+    "amount": 620.00,
+    "category": "ecommerce_zomato",
+    "description": "Dinner ordered from Zomato",
+    "paymentMethod": "upi",
+    "tags": "food,delivery,dinner"
+  },
+  {
+    "date": "2026-05-10",
+    "amount": 2350.00,
+    "category": "ecommerce_flipkart",
+    "description": "Smartphone accessories from Flipkart",
+    "paymentMethod": "card",
+    "tags": "shopping,electronics,online"
+  },
+  {
+    "date": "2026-05-12",
+    "amount": 150.00,
+    "category": "parking_fees",
+    "description": "Mall parking for 3 hours",
+    "paymentMethod": "cash",
+    "tags": "parking,weekend"
+  },
+  {
+    "date": "2026-05-15",
+    "amount": 1200.00,
+    "category": "medical_dental",
+    "description": "Dental checkup and cleaning",
+    "paymentMethod": "card",
+    "tags": "health,dental,routine"
+  },
+  {
+    "date": "2026-05-18",
+    "amount": 480.00,
+    "category": "medical_pharmacy",
+    "description": "Prescribed medicines from pharmacy",
+    "paymentMethod": "upi",
+    "tags": "health,medicines"
+  },
+  {
+    "date": "2026-06-02",
+    "amount": 8500.00,
+    "category": "agri_seeds",
+    "description": "Hybrid paddy seeds for kharif season",
+    "paymentMethod": "cash",
+    "tags": "farming,seeds,kharif,investment"
+  },
+  {
+    "date": "2026-06-05",
+    "amount": 6200.00,
+    "category": "agri_fertilizers",
+    "description": "Urea and DAP fertilizers",
+    "paymentMethod": "card",
+    "tags": "farming,fertilizers,investment"
+  },
+  {
+    "date": "2026-06-08",
+    "amount": 3500.00,
+    "category": "agri_pesticides",
+    "description": "Pesticides for pest control",
+    "paymentMethod": "cash",
+    "tags": "farming,pesticides,crop-protection"
+  },
+  {
+    "date": "2026-06-10",
+    "amount": 4500.00,
+    "category": "agri_fuel",
+    "description": "Diesel for tractor and pump set",
+    "paymentMethod": "cash",
+    "tags": "farming,fuel,diesel"
+  },
+  {
+    "date": "2026-06-15",
+    "amount": 12000.00,
+    "category": "agri_labor",
+    "description": "Labor wages for field preparation",
+    "paymentMethod": "cash",
+    "tags": "farming,labor,wages"
+  },
+  {
+    "date": "2026-06-20",
+    "amount": 8000.00,
+    "category": "agri_tractor_rental",
+    "description": "Tractor rental for ploughing 5 acres",
+    "paymentMethod": "cash",
+    "tags": "farming,tractor,rental"
+  },
+  {
+    "date": "2026-07-05",
+    "amount": 15000.00,
+    "category": "agri_harvester_rental",
+    "description": "Combine harvester rental for wheat",
+    "paymentMethod": "cheque",
+    "tags": "farming,harvester,rental"
+  },
+  {
+    "date": "2026-07-10",
+    "amount": 580.00,
+    "category": "ecommerce_zepto",
+    "description": "Vegetables and fruits from Zepto",
+    "paymentMethod": "upi",
+    "tags": "groceries,online,fresh"
+  },
+  {
+    "date": "2026-07-15",
+    "amount": 4200.00,
+    "category": "ecommerce_amazon",
+    "description": "Books and stationery from Amazon",
+    "paymentMethod": "card",
+    "tags": "shopping,books,online"
+  },
+  {
+    "date": "2026-07-20",
+    "amount": 5500.00,
+    "category": "medical_emergency",
+    "description": "Emergency room visit for minor injury",
+    "paymentMethod": "card",
+    "tags": "health,emergency,urgent"
+  },
+  {
+    "date": "2026-07-25",
+    "amount": 200.00,
+    "category": "parking_fees",
+    "description": "Airport parking charges",
+    "paymentMethod": "card",
+    "tags": "parking,travel,airport"
+  },
+  {
+    "date": "2026-08-01",
+    "amount": 3500.00,
+    "category": "domestic_help_maid",
+    "description": "Monthly salary for house maid",
+    "paymentMethod": "cash",
+    "tags": "domestic,monthly,household"
+  },
+  {
+    "date": "2026-08-01",
+    "amount": 8000.00,
+    "category": "domestic_help_cook",
+    "description": "Monthly salary for cook",
+    "paymentMethod": "cash",
+    "tags": "domestic,monthly,household"
+  },
+  {
+    "date": "2026-08-01",
+    "amount": 12000.00,
+    "category": "domestic_help_driver",
+    "description": "Monthly salary for driver",
+    "paymentMethod": "cash",
+    "tags": "domestic,monthly,household"
+  },
+  {
+    "date": "2026-08-02",
+    "amount": 2100.00,
+    "category": "milk_dairy",
+    "description": "Monthly milk delivery from dairy",
+    "paymentMethod": "upi",
+    "tags": "daily,essentials,dairy"
+  },
+  {
+    "date": "2026-08-03",
+    "amount": 950.00,
+    "category": "bills_lpg_gas",
+    "description": "LPG cylinder refill",
+    "paymentMethod": "cash",
+    "tags": "utilities,cooking,gas"
+  },
+  {
+    "date": "2026-08-05",
+    "amount": 450.00,
+    "category": "bills_dth_cable",
+    "description": "DTH recharge for TV",
+    "paymentMethod": "upi",
+    "tags": "bills,entertainment,monthly"
+  },
+  {
+    "date": "2026-08-07",
+    "amount": 299.00,
+    "category": "mobile_recharge",
+    "description": "Prepaid mobile recharge",
+    "paymentMethod": "upi",
+    "tags": "mobile,communication,monthly"
+  },
+  {
+    "date": "2026-08-10",
+    "amount": 180.00,
+    "category": "auto_rickshaw",
+    "description": "Auto rickshaw fare to market",
+    "paymentMethod": "cash",
+    "tags": "transport,local,daily"
+  },
+  {
+    "date": "2026-08-12",
+    "amount": 850.00,
+    "category": "salon_beauty",
+    "description": "Haircut and grooming at salon",
+    "paymentMethod": "upi",
+    "tags": "personal-care,grooming"
+  },
+  {
+    "date": "2026-08-15",
+    "amount": 350.00,
+    "category": "tailor_alterations",
+    "description": "Tailoring charges for kurta",
+    "paymentMethod": "cash",
+    "tags": "clothing,alterations"
+  },
+  {
+    "date": "2026-08-18",
+    "amount": 420.00,
+    "category": "laundry_dryclean",
+    "description": "Dry cleaning of formal clothes",
+    "paymentMethod": "cash",
+    "tags": "laundry,maintenance"
+  },
+  {
+    "date": "2026-08-20",
+    "amount": 250.00,
+    "category": "street_food",
+    "description": "Pani puri and chaat at street vendor",
+    "paymentMethod": "cash",
+    "tags": "food,snacks,weekend"
+  },
+  {
+    "date": "2026-08-22",
+    "amount": 18000.00,
+    "category": "school_fees",
+    "description": "Quarterly school fees for child",
+    "paymentMethod": "netbanking",
+    "tags": "education,quarterly,essential"
+  },
+  {
+    "date": "2026-08-23",
+    "amount": 5500.00,
+    "category": "tuition_classes",
+    "description": "Monthly tuition fees for math and science",
+    "paymentMethod": "upi",
+    "tags": "education,monthly,tuition"
+  },
+  {
+    "date": "2026-08-25",
+    "amount": 1100.00,
+    "category": "donations_religious",
+    "description": "Temple donation during Janmashtami",
+    "paymentMethod": "cash",
+    "tags": "religious,festival,donation"
+  },
+  {
+    "date": "2026-08-27",
+    "amount": 5100.00,
+    "category": "gifting_weddings",
+    "description": "Wedding gift for cousin",
+    "paymentMethod": "card",
+    "tags": "wedding,family,gift"
+  },
+  {
+    "date": "2026-08-28",
+    "amount": 2500.00,
+    "category": "vehicle_rto_fees",
+    "description": "Vehicle insurance renewal and RTO charges",
+    "paymentMethod": "netbanking",
+    "tags": "vehicle,annual,registration"
+  },
+  {
+    "date": "2026-08-29",
+    "amount": 8500.00,
+    "category": "home_repairs",
+    "description": "Plumbing repairs in bathroom",
+    "paymentMethod": "cash",
+    "tags": "home,maintenance,repair"
+  },
+  {
+    "date": "2026-08-30",
+    "amount": 12000.00,
+    "category": "home_furnishing",
+    "description": "New curtains and cushion covers",
+    "paymentMethod": "card",
+    "tags": "home,furnishing,decoration"
   }
 ]

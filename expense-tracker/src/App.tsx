@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, Fragment } from 'react';
 import { useExpenses } from './hooks/useExpenses';
 import { useSettings } from './hooks/useSettings';
 import { useAnalytics } from './hooks/useAnalytics';
@@ -17,6 +17,7 @@ import BudgetAlerts from './components/budgets/BudgetAlerts';
 import BudgetsView from './components/budgets/BudgetsView';
 import BackupRestore from './components/backup/BackupRestore';
 import PDFReportGenerator from './components/reports/PDFReportGenerator';
+import SavingsTracker from './components/savings/SavingsTracker';
 import { generateId } from './utils/helpers';
 import { db } from './services/db';
 import { CATEGORY_LABELS } from './utils/constants';
@@ -29,7 +30,7 @@ function App() {
   const [showBudgetManager, setShowBudgetManager] = useState(false);
   const [showBackupRestore, setShowBackupRestore] = useState(false);
   const [showPDFGenerator, setShowPDFGenerator] = useState(false);
-  const [currentView, setCurrentView] = useState<'dashboard' | 'expenses' | 'budgets' | 'analytics'>('dashboard');
+  const [currentView, setCurrentView] = useState<'dashboard' | 'expenses' | 'budgets' | 'savings' | 'analytics'>('dashboard');
   const [editingExpense, setEditingExpense] = useState<Expense | null>(null);
   const [budgets, setBudgets] = useState<CategoryBudget[]>([]);
   const [dashboardDateRange, setDashboardDateRange] = useState<{
@@ -489,6 +490,20 @@ function App() {
               <span>Budgets</span>
             </button>
             <button
+              onClick={() => setCurrentView('savings')}
+              className={`flex items-center gap-2 px-3 sm:px-5 py-2 font-semibold rounded-lg transition-all duration-200 text-sm whitespace-nowrap ${
+                currentView === 'savings'
+                  ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg shadow-green-500/30 scale-105'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/60 dark:hover:bg-gray-700/50'
+              }`}
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd" />
+              </svg>
+              <span>Savings</span>
+            </button>
+            <button
               onClick={() => setCurrentView('analytics')}
               className={`flex items-center gap-2 px-3 sm:px-5 py-2 font-semibold rounded-lg transition-all duration-200 text-sm whitespace-nowrap ${
                 currentView === 'analytics'
@@ -614,25 +629,25 @@ function App() {
 
                 {/* Month Selector */}
                 {dashboardDateRange.type === 'month' && (
-                  <>
+                  <Fragment key="month-selector">
                     <span className="text-gray-400 dark:text-gray-600">|</span>
                     <input
                       type="month"
                       value={dashboardDateRange.month || format(new Date(), 'yyyy-MM')}
                       onChange={(e) => setDashboardDateRange({ type: 'month', month: e.target.value })}
-                      className="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-1 focus:ring-blue-500"
+                      className="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-1 focus:ring-blue-500 focus:outline-none"
                     />
-                  </>
+                  </Fragment>
                 )}
 
                 {/* Year Selector */}
                 {dashboardDateRange.type === 'year' && (
-                  <>
+                  <Fragment key="year-selector">
                     <span className="text-gray-400 dark:text-gray-600">|</span>
                     <select
                       value={dashboardDateRange.year || new Date().getFullYear().toString()}
                       onChange={(e) => setDashboardDateRange({ type: 'year', year: e.target.value })}
-                      className="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-1 focus:ring-blue-500"
+                      className="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-1 focus:ring-blue-500 focus:outline-none relative z-10"
                     >
                       {Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - i).map(year => (
                         <option key={year} value={year}>
@@ -640,35 +655,35 @@ function App() {
                         </option>
                       ))}
                     </select>
-                  </>
+                  </Fragment>
                 )}
 
                 {/* Custom Date Range */}
                 {dashboardDateRange.type === 'custom' && (
-                  <>
+                  <Fragment key="custom-selector">
                     <span className="text-gray-400 dark:text-gray-600">|</span>
                     <input
                       type="date"
                       value={dashboardDateRange.startDate || ''}
                       onChange={(e) => setDashboardDateRange({ ...dashboardDateRange, type: 'custom', startDate: e.target.value })}
-                      className="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-1 focus:ring-blue-500"
+                      className="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-1 focus:ring-blue-500 focus:outline-none"
                     />
                     <span className="text-xs text-gray-500 dark:text-gray-400">to</span>
                     <input
                       type="date"
                       value={dashboardDateRange.endDate || ''}
                       onChange={(e) => setDashboardDateRange({ ...dashboardDateRange, type: 'custom', endDate: e.target.value })}
-                      className="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-1 focus:ring-blue-500"
+                      className="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-1 focus:ring-blue-500 focus:outline-none"
                     />
-                  </>
+                  </Fragment>
                 )}
 
                 {/* Summary Info - Compact */}
-                <div className="ml-auto flex items-center gap-2">
-                  <span className="text-xs font-medium text-gray-700 dark:text-gray-300">
+                <div className="ml-auto flex items-center gap-2 flex-shrink-0">
+                  <span className="text-xs font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
                     {getDashboardDateRangeText()}
                   </span>
-                  <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full">
+                  <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium rounded-full whitespace-nowrap">
                     {dashboardExpenses.length} txn{dashboardExpenses.length !== 1 ? 's' : ''}
                   </span>
                 </div>
@@ -757,13 +772,6 @@ function App() {
           const sortedByAmount = [...dashboardExpenses].sort((a, b) => b.amount - a.amount);
           const largestExpense = sortedByAmount[0];
           
-          const categoryFrequency = dashboardExpenses.reduce((acc, exp) => {
-            acc[exp.category] = (acc[exp.category] || 0) + 1;
-            return acc;
-          }, {} as Record<string, number>);
-          const mostFrequentCategory = Object.entries(categoryFrequency)
-            .sort(([, a], [, b]) => b - a)[0];
-          
           const dayOfWeekSpending = dashboardExpenses.reduce((acc, exp) => {
             const day = new Date(exp.date).getDay();
             acc[day] = (acc[day] || 0) + exp.amount;
@@ -774,14 +782,15 @@ function App() {
             .find(([, amount]) => amount === maxDaySpending);
           const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
           
-          // Calculate spending velocity (daily burn rate)
+          // Calculate spending velocity (daily burn rate) - from first expense to today
           const sortedByDate = [...dashboardExpenses].sort((a, b) => 
             new Date(a.date).getTime() - new Date(b.date).getTime()
           );
           const firstDate = sortedByDate.length > 0 ? new Date(sortedByDate[0].date) : new Date();
-          const lastDate = sortedByDate.length > 0 ? new Date(sortedByDate[sortedByDate.length - 1].date) : new Date();
-          const daysDiff = Math.max(1, Math.ceil((lastDate.getTime() - firstDate.getTime()) / (1000 * 60 * 60 * 24)));
+          const today = new Date();
+          const daysDiff = Math.max(1, Math.ceil((today.getTime() - firstDate.getTime()) / (1000 * 60 * 60 * 24)) + 1);
           const dailyBurnRate = totalExpenses / daysDiff;
+          const avgPerTransaction = dashboardExpenses.length > 0 ? totalExpenses / dashboardExpenses.length : 0;
           
           // Budget health score
           const activeBudgets = budgets.filter(b => b.isActive);
@@ -804,98 +813,122 @@ function App() {
           }
 
           return (
-            <div className="mb-8">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-                <span className="text-2xl">💡</span>
+            <div className="mb-6">
+              <h3 className="text-base font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                <span className="text-xl">💡</span>
                 <span>Quick Insights</span>
               </h3>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-4 gap-3">
                 {/* Daily Burn Rate */}
-                <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-xl p-5 shadow-md border border-orange-200 dark:border-orange-800">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="text-3xl">🔥</div>
-                    <div className="text-xs bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 px-2 py-1 rounded-full font-medium">
+                <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-lg p-3 shadow-sm border border-orange-200 dark:border-orange-800">
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="text-2xl">🔥</div>
+                    <div className="text-[10px] bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200 px-1.5 py-0.5 rounded-full font-medium">
                       Daily
                     </div>
                   </div>
-                  <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                  <p className="text-[10px] font-medium text-gray-600 dark:text-gray-400 mb-1">
                     Burn Rate
                   </p>
-                  <p className="text-xl font-bold text-orange-900 dark:text-orange-100">
+                  <p className="text-base font-bold text-orange-900 dark:text-orange-100 leading-tight">
                     {new Intl.NumberFormat('en-IN', {
                       style: 'currency',
                       currency: 'INR',
                       minimumFractionDigits: 0,
+                      maximumFractionDigits: 0,
                     }).format(dailyBurnRate)}
                   </p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
-                    Avg spending per day
+                  <p className="text-[10px] text-gray-600 dark:text-gray-400 mt-1">
+                    Since {format(firstDate, 'MMM d')}
+                  </p>
+                </div>
+
+                {/* Average Per Transaction */}
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-lg p-3 shadow-sm border border-emerald-200 dark:border-emerald-800">
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="text-2xl">💳</div>
+                    <div className="text-[10px] bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-200 px-1.5 py-0.5 rounded-full font-medium">
+                      Avg
+                    </div>
+                  </div>
+                  <p className="text-[10px] font-medium text-gray-600 dark:text-gray-400 mb-1">
+                    Per Transaction
+                  </p>
+                  <p className="text-base font-bold text-emerald-900 dark:text-emerald-100 leading-tight">
+                    {new Intl.NumberFormat('en-IN', {
+                      style: 'currency',
+                      currency: 'INR',
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 0,
+                    }).format(avgPerTransaction)}
+                  </p>
+                  <p className="text-[10px] text-gray-600 dark:text-gray-400 mt-1">
+                    {dashboardExpenses.length} txn{dashboardExpenses.length !== 1 ? 's' : ''}
                   </p>
                 </div>
 
                 {/* Largest Transaction */}
-                <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl p-5 shadow-md border border-purple-200 dark:border-purple-800">
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="text-3xl">💎</div>
-                    <div className="text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 px-2 py-1 rounded-full font-medium">
+                <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-3 shadow-sm border border-purple-200 dark:border-purple-800">
+                  <div className="flex items-start justify-between mb-2">
+                    <div className="text-2xl">💎</div>
+                    <div className="text-[10px] bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200 px-1.5 py-0.5 rounded-full font-medium">
                       Peak
                     </div>
                   </div>
-                  <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                  <p className="text-[10px] font-medium text-gray-600 dark:text-gray-400 mb-1">
                     Largest Expense
                   </p>
-                  <p className="text-xl font-bold text-purple-900 dark:text-purple-100">
+                  <p className="text-base font-bold text-purple-900 dark:text-purple-100 leading-tight">
                     {new Intl.NumberFormat('en-IN', {
                       style: 'currency',
                       currency: 'INR',
                       minimumFractionDigits: 0,
+                      maximumFractionDigits: 0,
                     }).format(largestExpense.amount)}
                   </p>
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-2 truncate">
+                  <p className="text-[10px] text-gray-600 dark:text-gray-400 mt-1 truncate">
                     {largestExpense.description}
                   </p>
                 </div>
 
-                {/* Most Active Day */}
-                {maxDay && (
-                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-xl p-5 shadow-md border border-blue-200 dark:border-blue-800">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="text-3xl">📅</div>
-                      <div className="text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full font-medium">
+                {/* Most Active Day / Budget Health */}
+                {maxDay ? (
+                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-lg p-3 shadow-sm border border-blue-200 dark:border-blue-800">
+                    <div className="flex items-start justify-between mb-2">
+                      <div className="text-2xl">📅</div>
+                      <div className="text-[10px] bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-1.5 py-0.5 rounded-full font-medium">
                         Pattern
                       </div>
                     </div>
-                    <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                    <p className="text-[10px] font-medium text-gray-600 dark:text-gray-400 mb-1">
                       Most Active Day
                     </p>
-                    <p className="text-xl font-bold text-blue-900 dark:text-blue-100">
+                    <p className="text-base font-bold text-blue-900 dark:text-blue-100 leading-tight">
                       {dayNames[parseInt(maxDay[0])]}
                     </p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
+                    <p className="text-[10px] text-gray-600 dark:text-gray-400 mt-1">
                       {new Intl.NumberFormat('en-IN', {
                         style: 'currency',
                         currency: 'INR',
                         minimumFractionDigits: 0,
-                      }).format(maxDay[1])} spent
+                        maximumFractionDigits: 0,
+                      }).format(maxDay[1])}
                     </p>
                   </div>
-                )}
-
-                {/* Budget Health */}
-                {activeBudgets.length > 0 && (
-                  <div className={`bg-gradient-to-br rounded-xl p-5 shadow-md border ${
+                ) : activeBudgets.length > 0 ? (
+                  <div className={`bg-gradient-to-br rounded-lg p-3 shadow-sm border ${
                     budgetHealth >= 80 
                       ? 'from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-green-200 dark:border-green-800'
                       : budgetHealth >= 60
                       ? 'from-yellow-50 to-amber-50 dark:from-yellow-900/20 dark:to-amber-900/20 border-yellow-200 dark:border-yellow-800'
                       : 'from-red-50 to-rose-50 dark:from-red-900/20 dark:to-rose-900/20 border-red-200 dark:border-red-800'
                   }`}>
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="text-3xl">
+                    <div className="flex items-start justify-between mb-2">
+                      <div className="text-2xl">
                         {budgetHealth >= 80 ? '✅' : budgetHealth >= 60 ? '⚠️' : '🚨'}
                       </div>
-                      <div className={`text-xs px-2 py-1 rounded-full font-medium ${
+                      <div className={`text-[10px] px-1.5 py-0.5 rounded-full font-medium ${
                         budgetHealth >= 80
                           ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200'
                           : budgetHealth >= 60
@@ -905,10 +938,10 @@ function App() {
                         {budgetHealth >= 80 ? 'Good' : budgetHealth >= 60 ? 'Fair' : 'Alert'}
                       </div>
                     </div>
-                    <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
+                    <p className="text-[10px] font-medium text-gray-600 dark:text-gray-400 mb-1">
                       Budget Health
                     </p>
-                    <p className={`text-xl font-bold ${
+                    <p className={`text-base font-bold leading-tight ${
                       budgetHealth >= 80
                         ? 'text-green-900 dark:text-green-100'
                         : budgetHealth >= 60
@@ -917,32 +950,11 @@ function App() {
                     }`}>
                       {budgetHealth}%
                     </p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
-                      {activeBudgets.length} budget{activeBudgets.length !== 1 ? 's' : ''} tracked
+                    <p className="text-[10px] text-gray-600 dark:text-gray-400 mt-1">
+                      {activeBudgets.length} budget{activeBudgets.length !== 1 ? 's' : ''}
                     </p>
                   </div>
-                )}
-
-                {/* Most Frequent Category */}
-                {!maxDay && mostFrequentCategory && (
-                  <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 rounded-xl p-5 shadow-md border border-teal-200 dark:border-teal-800">
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="text-3xl">🎯</div>
-                      <div className="text-xs bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 px-2 py-1 rounded-full font-medium">
-                        Habit
-                      </div>
-                    </div>
-                    <p className="text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">
-                      Most Frequent
-                    </p>
-                    <p className="text-lg font-bold text-teal-900 dark:text-teal-100 capitalize">
-                      {mostFrequentCategory[0].replace(/_/g, ' ')}
-                    </p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400 mt-2">
-                      {mostFrequentCategory[1]} transaction{mostFrequentCategory[1] !== 1 ? 's' : ''}
-                    </p>
-                  </div>
-                )}
+                ) : null}
               </div>
             </div>
           );
@@ -1375,6 +1387,11 @@ function App() {
           onBudgetsUpdate={loadBudgets}
           expenses={expenses}
         />
+      )}
+
+      {/* Savings View */}
+      {currentView === 'savings' && (
+        <SavingsTracker expenses={expenses} />
       )}
       </main>
 

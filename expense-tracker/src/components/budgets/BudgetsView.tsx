@@ -11,7 +11,7 @@ interface BudgetsViewProps {
   expenses: Expense[];
 }
 
-export default function BudgetsView({ currentSpending, onBudgetsUpdate, expenses }: BudgetsViewProps) {
+export default function BudgetsView({ onBudgetsUpdate, expenses }: BudgetsViewProps) {
   const [budgets, setBudgets] = useState<CategoryBudget[]>([]);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -394,11 +394,11 @@ export default function BudgetsView({ currentSpending, onBudgetsUpdate, expenses
         <>
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              {viewPeriod === 'month' ? 'Monthly' : 'Yearly'} Budgets ({budgets.filter(b => (b.budgetType || 'monthly') === viewPeriod).length})
+              {viewPeriod === 'month' ? 'Monthly' : 'Yearly'} Budgets ({budgets.filter(b => (b.budgetType || 'monthly') === (viewPeriod === 'month' ? 'monthly' : 'yearly')).length})
             </h3>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              {budgets.filter(b => (b.budgetType || 'monthly') !== viewPeriod).length > 0 && (
-                <span>({budgets.filter(b => (b.budgetType || 'monthly') !== viewPeriod).length} {viewPeriod === 'month' ? 'yearly' : 'monthly'} budget{budgets.filter(b => (b.budgetType || 'monthly') !== viewPeriod).length !== 1 ? 's' : ''} hidden)</span>
+              {budgets.filter(b => (b.budgetType || 'monthly') !== (viewPeriod === 'month' ? 'monthly' : 'yearly')).length > 0 && (
+                <span>({budgets.filter(b => (b.budgetType || 'monthly') !== (viewPeriod === 'month' ? 'monthly' : 'yearly')).length} {viewPeriod === 'month' ? 'yearly' : 'monthly'} budget{budgets.filter(b => (b.budgetType || 'monthly') !== (viewPeriod === 'month' ? 'monthly' : 'yearly')).length !== 1 ? 's' : ''} hidden)</span>
               )}
             </p>
           </div>

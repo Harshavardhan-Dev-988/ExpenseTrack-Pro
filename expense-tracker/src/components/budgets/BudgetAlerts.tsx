@@ -1,7 +1,6 @@
 import { useMemo, useState, useEffect, memo } from 'react';
 import type { CategoryBudget, Expense } from '../../types';
 import { CATEGORY_LABELS } from '../../utils/constants';
-import { startOfMonth, endOfMonth } from 'date-fns';
 
 interface BudgetAlertsProps {
   budgets: CategoryBudget[];

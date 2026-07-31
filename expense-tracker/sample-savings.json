@@ -1,0 +1,126 @@
+[
+  {
+    "date": "2026-01-15",
+    "amount": 50000.00,
+    "category": "emergency_fund",
+    "description": "Monthly emergency fund contribution",
+    "account": "HDFC Savings Account",
+    "interestRate": 3.5
+  },
+  {
+    "date": "2026-01-20",
+    "amount": 10000.00,
+    "category": "investment_mutual_funds",
+    "description": "SIP in HDFC Balanced Advantage Fund",
+    "account": "HDFC Mutual Fund",
+    "interestRate": 12.0
+  },
+  {
+    "date": "2026-02-01",
+    "amount": 100000.00,
+    "category": "fixed_deposit",
+    "description": "1-year fixed deposit",
+    "account": "SBI Fixed Deposit",
+    "interestRate": 7.1,
+    "maturityDate": "2027-02-01"
+  },
+  {
+    "date": "2026-02-15",
+    "amount": 50000.00,
+    "category": "emergency_fund",
+    "description": "Monthly emergency fund contribution",
+    "account": "HDFC Savings Account",
+    "interestRate": 3.5
+  },
+  {
+    "date": "2026-02-20",
+    "amount": 10000.00,
+    "category": "investment_mutual_funds",
+    "description": "SIP in HDFC Balanced Advantage Fund",
+    "account": "HDFC Mutual Fund",
+    "interestRate": 12.0
+  },
+  {
+    "date": "2026-03-10",
+    "amount": 25000.00,
+    "category": "ppf",
+    "description": "Public Provident Fund contribution",
+    "account": "SBI PPF Account",
+    "interestRate": 7.1
+  },
+  {
+    "date": "2026-03-15",
+    "amount": 50000.00,
+    "category": "emergency_fund",
+    "description": "Monthly emergency fund contribution",
+    "account": "HDFC Savings Account",
+    "interestRate": 3.5
+  },
+  {
+    "date": "2026-04-01",
+    "amount": 5000.00,
+    "category": "recurring_deposit",
+    "description": "Monthly RD installment",
+    "account": "ICICI Recurring Deposit",
+    "interestRate": 6.5,
+    "maturityDate": "2027-04-01"
+  },
+  {
+    "date": "2026-04-15",
+    "amount": 30000.00,
+    "category": "education_fund",
+    "description": "Child's college education fund",
+    "account": "Axis Savings Account"
+  },
+  {
+    "date": "2026-05-10",
+    "amount": 75000.00,
+    "category": "home_purchase",
+    "description": "Saving for house down payment",
+    "account": "HDFC Savings Account"
+  },
+  {
+    "date": "2026-05-20",
+    "amount": 15000.00,
+    "category": "investment_stocks",
+    "description": "Invested in Reliance Industries shares",
+    "account": "Zerodha Demat Account"
+  },
+  {
+    "date": "2026-06-05",
+    "amount": 20000.00,
+    "category": "investment_gold",
+    "description": "Digital gold purchase",
+    "account": "Google Pay Gold"
+  },
+  {
+    "date": "2026-06-15",
+    "amount": 50000.00,
+    "category": "retirement",
+    "description": "Retirement corpus contribution",
+    "account": "NPS Tier 1 Account",
+    "interestRate": 10.0
+  },
+  {
+    "date": "2026-07-01",
+    "amount": 8000.00,
+    "category": "travel_fund",
+    "description": "Saving for Europe trip",
+    "account": "HDFC Savings Account"
+  },
+  {
+    "date": "2026-07-15",
+    "amount": 40000.00,
+    "category": "vehicle_purchase",
+    "description": "Saving for new car",
+    "account": "SBI Savings Account"
+  },
+  {
+    "date": "2026-08-01",
+    "amount": 50000.00,
+    "category": "general_savings",
+    "description": "General monthly savings",
+    "account": "HDFC Savings Account",
+    "interestRate": 3.5
+  }
+]

@@ -1,11 +1,13 @@
 import { openDB, type DBSchema, type IDBPDatabase } from 'idb';
-import type { Expense, CategoryBudget, Settings } from '../types';
+import type { Expense, CategoryBudget, Settings, SavingsEntry, SavingsGoal } from '../types';
 import { 
   DB_NAME, 
   DB_VERSION, 
   EXPENSES_STORE_NAME,
   BUDGETS_STORE_NAME,
-  SETTINGS_STORE_NAME 
+  SETTINGS_STORE_NAME,
+  SAVINGS_STORE_NAME,
+  SAVINGS_GOALS_STORE_NAME
 } from '../utils/constants';
 
 interface ExpenseTrackerDB extends DBSchema {
@@ -27,6 +29,19 @@ interface ExpenseTrackerDB extends DBSchema {
     key: string;
     value: Settings;
   };
+  [SAVINGS_STORE_NAME]: {
+    key: string;
+    value: SavingsEntry;
+    indexes: {
+      'by-date': Date;
+      'by-category': string;
+      'by-amount': number;
+    };
+  };
+  [SAVINGS_GOALS_STORE_NAME]: {
+    key: string;
+    value: SavingsGoal;
+  };
 }
 
 class DatabaseService {
@@ -35,7 +50,7 @@ class DatabaseService {
   private async getDB(): Promise<IDBPDatabase<ExpenseTrackerDB>> {
     if (!this.dbPromise) {
       this.dbPromise = openDB<ExpenseTrackerDB>(DB_NAME, DB_VERSION, {
-        upgrade(db) {
+        upgrade(db, oldVersion) {
           // Create expenses store
           if (!db.objectStoreNames.contains(EXPENSES_STORE_NAME)) {
             const expenseStore = db.createObjectStore(EXPENSES_STORE_NAME, { 
@@ -55,6 +70,23 @@ class DatabaseService {
           // Create settings store
           if (!db.objectStoreNames.contains(SETTINGS_STORE_NAME)) {
             db.createObjectStore(SETTINGS_STORE_NAME, { keyPath: 'id' });
+          }
+
+          // Create savings store (version 2+)
+          if (oldVersion < 2 && !db.objectStoreNames.contains(SAVINGS_STORE_NAME)) {
+            const savingsStore = db.createObjectStore(SAVINGS_STORE_NAME, {
+              keyPath: 'id'
+            });
+            savingsStore.createIndex('by-date', 'date');
+            savingsStore.createIndex('by-category', 'category');
+            savingsStore.createIndex('by-amount', 'amount');
+          }
+
+          // Create savings goals store (version 2+)
+          if (oldVersion < 2 && !db.objectStoreNames.contains(SAVINGS_GOALS_STORE_NAME)) {
+            db.createObjectStore(SAVINGS_GOALS_STORE_NAME, {
+              keyPath: 'id'
+            });
           }
         },
       });
@@ -225,6 +257,72 @@ class DatabaseService {
       return estimate.usage || 0;
     }
     return 0;
+  }
+
+  // ===== SAVINGS OPERATIONS =====
+
+  async addSavings(savings: SavingsEntry): Promise<string> {
+    const db = await this.getDB();
+    await db.add(SAVINGS_STORE_NAME, savings);
+    return savings.id;
+  }
+
+  async getSavings(id: string): Promise<SavingsEntry | undefined> {
+    const db = await this.getDB();
+    return db.get(SAVINGS_STORE_NAME, id);
+  }
+
+  async getAllSavings(): Promise<SavingsEntry[]> {
+    const db = await this.getDB();
+    return db.getAll(SAVINGS_STORE_NAME);
+  }
+
+  async updateSavings(savings: SavingsEntry): Promise<void> {
+    const db = await this.getDB();
+    await db.put(SAVINGS_STORE_NAME, savings);
+  }
+
+  async deleteSavings(id: string): Promise<void> {
+    const db = await this.getDB();
+    await db.delete(SAVINGS_STORE_NAME, id);
+  }
+
+  async clearAllSavings(): Promise<void> {
+    const db = await this.getDB();
+    await db.clear(SAVINGS_STORE_NAME);
+  }
+
+  // ===== SAVINGS GOALS OPERATIONS =====
+
+  async addSavingsGoal(goal: SavingsGoal): Promise<string> {
+    const db = await this.getDB();
+    await db.add(SAVINGS_GOALS_STORE_NAME, goal);
+    return goal.id;
+  }
+
+  async getSavingsGoal(id: string): Promise<SavingsGoal | undefined> {
+    const db = await this.getDB();
+    return db.get(SAVINGS_GOALS_STORE_NAME, id);
+  }
+
+  async getAllSavingsGoals(): Promise<SavingsGoal[]> {
+    const db = await this.getDB();
+    return db.getAll(SAVINGS_GOALS_STORE_NAME);
+  }
+
+  async updateSavingsGoal(goal: SavingsGoal): Promise<void> {
+    const db = await this.getDB();
+    await db.put(SAVINGS_GOALS_STORE_NAME, goal);
+  }
+
+  async deleteSavingsGoal(id: string): Promise<void> {
+    const db = await this.getDB();
+    await db.delete(SAVINGS_GOALS_STORE_NAME, id);
+  }
+
+  async clearAllSavingsGoals(): Promise<void> {
+    const db = await this.getDB();
+    await db.clear(SAVINGS_GOALS_STORE_NAME);
   }
 }
 
